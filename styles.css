@@ -13,29 +13,156 @@ body, html {
 
 body {
     display:flex;
+    flex-direction: column;
+    justify-content: center;
     height:100vh;
+    font-size:16px;
+    color:#fff;
+}
+
+h1,h2,h3,p,ul {
+    margin:0;
+    padding:0;
+}
+
+.space {
+    margin-bottom: 19px;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color:#E5EFF5;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+span, li {
+    font-size: 14px;
 }
 
 .container {
     max-width:695px;
     width:100%;
-    margin: auto;
+    margin:0 auto;
     padding: 0 30px;
-    background-color: aqua;
+}
+
+.price-component {
+    border-radius:4px;
+    overflow: hidden;
+    box-shadow:0 5px 10px 10px rgba(0, 0, 0, 0.05);
 }
 
 .price-community, .price-subscription, .price-why {
     padding:30px;
 }
 
+/* PRICE COMMUNITY */
+
 .price-community {
-    background-color: brown;
+    background-color: #fff;
 }
 
+h1 {
+    color:#2bb3b1;
+    font-weight:700;
+    font-size: 20px;
+}
+
+h3 {
+    color:#bfdf32;
+    font-weight:700;
+    font-size: 15px;
+}
+
+.price-community span {
+    line-height: 26px;
+    color:#98A6BD;
+}
+
+/*PRICE SUBSCRIPTION*/
+
 .price-subscription {
-    background-color: cornsilk;
+    background-color: #2bb3b1;
+}
+
+h2 {
+    font-weight:700;
+    font-size: 18px;
+}
+
+.price {
+    display:flex;
+    align-items: center;
+}
+
+.price-dollar {
+    font-size:32px;
+    font-weight:700;
+}
+
+.price-subscription span:nth-child(2) {
+    color:#E5EFF5;
+    margin-left: 10px;
+}
+
+button {
+    display:block;
+    width:100%;
+    padding:15px;
+    font-size:16px;
+    font-weight: 700;
+    color:#fff;
+    border-radius: 4px;
+    font-family: 'Karla', sans-serif;
+    background-color: #bfdf32;
+    border:0;
+    outline:none;
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    
 }
 
 .price-why {
-    background-color: darkgoldenrod;
+    background-color: #4abebd;
+}
+
+.price-why ul li {
+    margin-bottom: 4px;
+}
+
+.price-why ul li:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width:576px) {
+
+    h1 {
+        font-size:24px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    .price-community span {
+        font-size:16px;
+    }
+
+    .price-community, .price-subscription, .price-why {
+        padding:38px;
+    }
+    .price-section {
+        display:flex;
+    }
+
+    .price-section > div {
+        flex:1;
+    }
 }
