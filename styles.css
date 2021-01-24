@@ -1,13 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 
+:root {
+    --light-gray: #E6EFF5;
+    --white : #FFFFFF;
+    --cyan: #4BBFBD;
+    --cyan-dark:#2AB3B1;
+    --bright-yellow:#c0df33;
+    --gray:#9AA7BE;
+}
+
 * {
     box-sizing: border-box;
+}
+
+html {
+    font-size:100%;
 }
 
 body,
 html {
     font-family: 'Karla', sans-serif;
-    background-color: #E6EFF5;
+    background-color: var(--light-gray);
 }
 
 body {
@@ -16,8 +29,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    font-size: 16px;
-    color: #fff;
+    color: var(--white);
 }
 
 body,
@@ -36,17 +48,17 @@ ul {
 }
 
 a {
-    font-size: 14px;
-    letter-spacing: -0.18px;
-    line-height: 20px;
-    color: #FFFFFF;
+    font-size: 0.875rem;
+    letter-spacing: -0.011rem;
+    line-height: 1.25rem;
+    color: var(--white);
     opacity: 0.75;
     text-decoration: none;
 }
 
 p {
-    letter-spacing: -0.2px;
-    line-height: 26px;
+    letter-spacing: -0.013rem;
+    line-height: 1.625rem;
 }
 
 h1,
@@ -56,54 +68,54 @@ h2 {
 
 
 h2 {
-    font-size: 18px;
-    letter-spacing: -0.23px;
+    font-size: 1.125rem;
+    letter-spacing: -0.014rem;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
-    max-width: 700px;
+    max-width: 43.75rem;
     margin: 0 auto;
-    padding: 0 32px;
+    padding: 0 2rem;
 }
 
 .price-component {
     margin: auto 0;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     overflow: hidden;
-    box-shadow: 0 15px 30px 0 rgba(0, 81, 171, 0.15);
+    box-shadow: 0 0.938rem 1.875rem 0 rgba(0, 81, 171, 0.15);
 }
 
 .price-community,
 .price-subscription,
 .price-why-us {
-    padding: 40px;
+    padding: 2.5rem;
 }
 
 /* PRICE COMMUNITY */
 
 .price-community {
-    background-color: #FFFFFF;
+    background-color: var(--white);
 }
 
 .price-community h1 {
-    font-size: 24px;
-    line-height: 28px;
-    color: #2AB3B1;
-    letter-spacing: -0.3px;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    color: var(--cyan-dark);
+    letter-spacing: -0.019rem;
 }
 
 .price-community h2 {
-    color: #C0DF33;
-    margin: 24px 0 10px 0;
+    color: var(--bright-yellow);
+    margin: 1.5rem 0 0.625rem 0;
 }
 
 .price-community p {
-    color: #9AA7BE;
-    line-height: 26px;
+    color: var(--gray);
+    line-height: 1.625rem;
 }
 
 /* PRICE FOOTER */
@@ -119,84 +131,92 @@ h2 {
 /* PRICE SUBSCRIPTION */
 
 .price-subscription {
-    background-color: #2AB3B1;
+    background-color: var(--cyan-dark);
 }
 
 .price-subscription .price {
     display: flex;
     align-items: center;
-    margin: 17px 0 4px 0;
+    margin: 1.063rem 0 0.25rem 0;
 }
 
 .price-subscription .price-dollar {
     font-weight:700;
-    font-size: 32px;
-    letter-spacing: -0.4px;
+    font-size: 2rem;
+    letter-spacing: -0.025rem;
 }
 
 .price-subscription .price span+span {
-    margin-left: 12px;
-    letter-spacing: -0.2px;
+    margin-left: 0.75rem;
+    letter-spacing: -0.013rem;
     opacity: 0.5;
 }
 
 .price-subscription button {
     display: block;
     width: 100%;
-    margin: 26px 0 0 0;
-    padding: 15px;
-    border-radius: 5px;
+    margin: 1.625rem 0 0 0;
+    padding: 0.938rem;
+    border-radius: 0.313rem;
     font-weight:700;
     font-family: 'Karla', sans-serif;
-    font-size: 16px;
-    color: #FFFFFF;
-    letter-spacing: -0.2px;
-    background-color: #C0DF33;
+    font-size: 1rem;
+    color: var(--white);
+    letter-spacing: -0.013rem;
+    background-color: var(--bright-yellow);
     border: 0;
     outline: none;
-    box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.10);
+    transition: box-shadow 500ms;
+    box-shadow: 0 0.625rem 0.625rem 0 rgba(0, 0, 0, 0.10);
     cursor: pointer;
+}
+
+.price-subscription button:hover {
+    box-shadow: inherit;
 }
 
 /* PRICE WHY US */
 
 .price-why-us {
-    background-color: #4BBFBD;
+    background-color: var(--cyan);
 }
 
 .price-why-us ul {
-    margin-top: 17px;
+    margin-top: 1.063rem;
 }
 
-@media screen and (max-width:576px) {
+.price-why-us ul li:hover a {
+    text-decoration: underline;
+}
+
+@media screen and (max-width:36rem) /*576px*/ {
 
     .container {
-        height: 100%;
-        margin: 20px auto;
+        margin: 1.25rem auto;
     }
 
     .price-component {
-        border-radius: 5px;
+        border-radius: 0.313rem;
     }
 
     .price-community,
     .price-subscription,
     .price-why-us {
-        padding: 24px;
+        padding: 1.5rem;
     }
 
     .price-community h1 {
-        font-size: 20px;
-        line-height: 23px;
-        color: #2AB3B1;
-        letter-spacing: -0.25px;
+        font-size: 1.25rem;
+        line-height: 1.438rem;
+        color: var(--cyan-dark);
+        letter-spacing: -0.016rem;
     }
 
     .price-community h2 {
-        font-size: 15px;
-        line-height: 20px;
-        letter-spacing: -0.19px;
-        margin: 24px 0 16px 0;
+        font-size: 0.938rem;
+        line-height: 1.25rem;
+        letter-spacing: -0.012rem;
+        margin: 1.5rem 0 1rem 0;
     }
 
     .price-footer {
