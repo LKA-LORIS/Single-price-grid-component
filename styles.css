@@ -2,25 +2,30 @@
 
 :root {
     --light-gray: #E6EFF5;
-    --white : #FFFFFF;
+    --white: #FFFFFF;
     --cyan: #4BBFBD;
-    --cyan-dark:#2AB3B1;
-    --bright-yellow:#c0df33;
-    --gray:#9AA7BE;
+    --cyan-dark: #2AB3B1;
+    --bright-yellow: #c0df33;
+    --gray: #9AA7BE;
 }
 
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
+    min-width: 0;
+    min-height: 0;
 }
 
 html {
-    font-size:100%;
-}
-
-body,
-html {
-    font-family: 'Karla', sans-serif;
-    background-color: var(--light-gray);
+    height: 100%;
+    font-size: 100%;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+    overflow-wrap: break-word;
+    overflow: hidden;
 }
 
 body {
@@ -30,6 +35,8 @@ body {
     height: 100%;
     width: 100%;
     color: var(--white);
+    font-family: 'Karla', sans-serif;
+    background-color: var(--light-gray);
 }
 
 body,
@@ -72,7 +79,7 @@ h2 {
     letter-spacing: -0.014rem;
 }
 
-.container {
+main {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -82,83 +89,80 @@ h2 {
     padding: 0 2rem;
 }
 
-.price-component {
+.imposter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "community community"
+        "subscription about";
     margin: auto 0;
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 0 0.938rem 1.875rem 0 rgba(0, 81, 171, 0.15);
 }
 
-.price-community,
-.price-subscription,
-.price-why-us {
+.community,
+.subscription,
+.about {
     padding: 2.5rem;
 }
 
-/* PRICE COMMUNITY */
+/* COMMUNITY */
 
-.price-community {
+.community {
+    grid-area: community;
     background-color: var(--white);
 }
 
-.price-community h1 {
+.community h1 {
     font-size: 1.5rem;
     line-height: 1.75rem;
     color: var(--cyan-dark);
     letter-spacing: -0.019rem;
 }
 
-.price-community h2 {
+.community h2 {
     color: var(--bright-yellow);
     margin: 1.5rem 0 0.625rem 0;
 }
 
-.price-community p {
+.community p {
     color: var(--gray);
     line-height: 1.625rem;
 }
 
-/* PRICE FOOTER */
+/* SUBSCRIPTION */
 
-.price-footer {
-    display: flex;
-}
-
-.price-footer>article {
-    flex: 1;
-}
-
-/* PRICE SUBSCRIPTION */
-
-.price-subscription {
+.subscription {
+    grid-area: subscription;
     background-color: var(--cyan-dark);
 }
 
-.price-subscription .price {
+.subscription .price {
     display: flex;
     align-items: center;
     margin: 1.063rem 0 0.25rem 0;
 }
 
-.price-subscription .price-dollar {
-    font-weight:700;
+.subscription .price span:first-child {
+    font-weight: 700;
     font-size: 2rem;
     letter-spacing: -0.025rem;
 }
 
-.price-subscription .price span+span {
+.subscription .price span+span {
     margin-left: 0.75rem;
     letter-spacing: -0.013rem;
     opacity: 0.5;
 }
 
-.price-subscription button {
+.subscription button {
     display: block;
     width: 100%;
     margin: 1.625rem 0 0 0;
     padding: 0.938rem;
     border-radius: 0.313rem;
-    font-weight:700;
+    font-weight: 700;
     font-family: 'Karla', sans-serif;
     font-size: 1rem;
     color: var(--white);
@@ -171,55 +175,64 @@ h2 {
     cursor: pointer;
 }
 
-.price-subscription button:hover {
+.subscription button:hover {
     box-shadow: inherit;
 }
 
-/* PRICE WHY US */
+/* ABOUT */
 
-.price-why-us {
+.about {
+    grid-area: about;
     background-color: var(--cyan);
 }
 
-.price-why-us ul {
+.about ul {
     margin-top: 1.063rem;
 }
 
-.price-why-us ul li:hover a {
+.about ul li:hover a {
     text-decoration: underline;
 }
 
-@media screen and (max-width:36rem) /*576px*/ {
+@media screen and (max-width:36rem) {
 
-    .container {
+    main {
         margin: 1.25rem auto;
     }
 
-    .price-component {
+    .imposter {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "community"
+            "subscription"
+            "about";
+    }
+
+    .price {
         border-radius: 0.313rem;
     }
 
-    .price-community,
-    .price-subscription,
-    .price-why-us {
+    .community,
+    .subscription,
+    .about {
         padding: 1.5rem;
     }
 
-    .price-community h1 {
+    .community h1 {
         font-size: 1.25rem;
         line-height: 1.438rem;
         color: var(--cyan-dark);
         letter-spacing: -0.016rem;
     }
 
-    .price-community h2 {
+    .community h2 {
         font-size: 0.938rem;
         line-height: 1.25rem;
         letter-spacing: -0.012rem;
         margin: 1.5rem 0 1rem 0;
     }
 
-    .price-footer {
+    .price__container {
         display: block;
     }
 }
